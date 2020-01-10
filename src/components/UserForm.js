@@ -1,21 +1,25 @@
 import React, { Component } from 'react'
 import StoreType from './StoreType'
+import AnnualSales from './AnnualSales'
+import NetProfit from './NetProfit'
+import LastYear from './LastYear'
+import LoseInternet from './LoseInternet'
 
 export class UserForm extends Component {
     state = {
         step: 1,
-        firstOption: '',
-        secondOption: '',
-        thirdOption: '',
-        fourthOption: '',
-        fifthOption: ''
+        storeType: '',
+        annualSales: '',
+        netProfit: '',
+        lastYear: '',
+        LoseInternet: ''
     }
 
     // Proceed to next step
     nextStep = () => {
         const { step } = this.state
         this.setState({
-            step: + 1
+          step: step + 1
         })
     }
 
@@ -23,7 +27,7 @@ export class UserForm extends Component {
     prevStep = () => {
         const { step } = this.state
         this.setState({
-            step: - 1
+            step: step - 1
         })
     }
 
@@ -35,10 +39,10 @@ export class UserForm extends Component {
 
     render() {
         const { step } = this.state
-        const { firstOption, secondOption, thirdOption, fourthOption, fifthOption } = this.state
-        const values = {firstOption, secondOption, thirdOption, fourthOption, fifthOption}
+        const { storeType, annualSales, netProfit, lastYear, loseInternet } = this.state
+        const values = {storeType, annualSales, netProfit, lastYear, loseInternet}
         
-        switch(step){
+        switch (step) {
             case 1: 
                 return(
                 <StoreType
@@ -48,16 +52,41 @@ export class UserForm extends Component {
                 />
                 )
             case 2:
-                return <h1>Annual Sales</h1>
+                return(
+                    <AnnualSales 
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}/>
+                )
             case 3:
-                return <h1>Net Profit</h1>
+                return (
+                    <NetProfit 
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}/>
+                )
             case 4:
-                return <h1>Last Years Product</h1>
+                return (
+                    <LastYear 
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}/>
+                )
             case 5:
-                return <h1>Losing to Internet</h1>
+                return (
+                    <LoseInternet 
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}
+                    />
+                )
             case 6:
                 return <h1>Calculation</h1>
-        }
+            }
     }
 }
 

@@ -7,7 +7,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import NumberFormat from 'react-number-format'
 
 export class AnnualSales extends Component {
     continue = e => {

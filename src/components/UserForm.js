@@ -45,11 +45,10 @@ export class UserForm extends Component {
         switch (step) {
             case 1: 
                 return(
-                <StoreType
-                nextStep={this.nextStep}
-                handleChange={this.handleChange}
-                values={values}
-                />
+                    <StoreType
+                    nextStep={this.nextStep}
+                    handleChange={this.handleChange}
+                    values={values}/>
                 )
             case 2:
                 return(

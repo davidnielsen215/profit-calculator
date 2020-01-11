@@ -19,14 +19,16 @@ export class StoreType extends Component {
         return (
             <MuiThemeProvider>
                 <React.Fragment>
-                    <AppBar title='What type of retail store do you have?'/>
+                    <AppBar title='What type of retail store do you have?' style={{backgroundColor: `${styles.nav.color}`}}/>
                     
                     <br></br>
                     <FormControl component="fieldset" >
                     <RadioGroup onChange={handleChange('storeType')} defaultValue={values.storeType}>
                         <FormControlLabel value="Ski Shop" control={<Radio color="primary"/>} label="Ski Shop" />
                         <FormControlLabel value="Snowboard Shop" control={<Radio color="primary"/>} label="Snowboard Shop" />
-                        <FormControlLabel value="Ski and Snowboard Shop" control={<Radio color="primary"/>} label="Ski and Snowboard Shop" />
+                        <FormControlLabel value="Ski + Snowboard Shop" control={<Radio color="primary"/>} label="Ski + Snowboard Shop" />
+                        <FormControlLabel value="Outdoor Gear + Ware" control={<Radio color="primary"/>} label="Outdoor Gear + Ware" />
+
                     </RadioGroup>
                     </FormControl>
                     <br/>
@@ -45,6 +47,10 @@ export class StoreType extends Component {
 const styles = {
     button: {
         margin: 15,
+        color: 'blue'
+    },
+    nav: {
+        color: '#0346ce'
     }
 }
 

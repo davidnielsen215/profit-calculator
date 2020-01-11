@@ -22,7 +22,7 @@ export class LastYear extends Component {
         return (
             <MuiThemeProvider>
                 <React.Fragment>
-                    <AppBar title= "What percent of your sales was last year's product?"/>
+                    <AppBar title= "What percent of your sales was last year's product?" style={{backgroundColor: `${styles.nav.color}`}}/>
                     
                     <FormControl component="fieldset" >
                     <RadioGroup onChange={handleChange('lastYear')} defaultValue={values.lastYear}>
@@ -56,8 +56,8 @@ const styles = {
     button: {
         margin: 15,
     },
-    button2: {
-        margin: 5
+    nav: {
+        color: '#0346ce'
     }
 }
 

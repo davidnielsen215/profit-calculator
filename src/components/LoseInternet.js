@@ -22,7 +22,7 @@ export class LoseInternet extends Component {
         return (
             <MuiThemeProvider>
                 <React.Fragment>
-                    <AppBar title= "What percent of your sales are lost to the internet?"/>
+                    <AppBar title= "What percent of your sales are lost to the internet?" style={{backgroundColor: `${styles.nav.color}`}}/>
                     
                     <FormControl component="fieldset" >
                     <RadioGroup onChange={handleChange('loseInternet')} defaultValue={values.loseInternet}>
@@ -57,8 +57,8 @@ const styles = {
     button: {
         margin: 15,
     },
-    button2: {
-        margin: 5
+    nav: {
+        color: '#0346ce'
     }
 }
 

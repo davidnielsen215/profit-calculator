@@ -22,7 +22,7 @@ export class NetProfit extends Component {
         return (
             <MuiThemeProvider>
                 <React.Fragment>
-                    <AppBar title= "What was your net profit (%) from the previous year?"/>
+                    <AppBar title= "What was your net profit (%) from the previous year?" style={{backgroundColor: `${styles.nav.color}`}}/>
                     
                     <FormControl component="fieldset" >
                     <RadioGroup onChange={handleChange('netProfit')} defaultValue={values.netProfit}>
@@ -57,8 +57,8 @@ const styles = {
     button: {
         margin: 15,
     },
-    button2: {
-        margin: 5
+    nav: {
+        color: '#0346ce'
     }
 }
 

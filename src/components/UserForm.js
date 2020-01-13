@@ -12,7 +12,8 @@ export class UserForm extends Component {
         annualSales: '',
         netProfit: '',
         lastYear: '',
-        LoseInternet: ''
+        loseInternet: '',
+        result: ''
     }
 
     // Proceed to next step
@@ -37,12 +38,25 @@ export class UserForm extends Component {
         this.setState({[input]: e.target.value})
     }
 
+    setResult = () =>{
+        const {netProfit, lastYear, result } = this.state
+        const var1 = parseFloat(lastYear)
+        const var2 = parseFloat(netProfit)
+        this.setState({
+            result: result + (var1 + var2).toFixed(2) + "%"
+        })
+        console.log(lastYear)
+        console.log(netProfit)
+    }
+
     render() {
         const { step } = this.state
-        const { storeType, annualSales, netProfit, lastYear, loseInternet } = this.state
+        const { storeType, annualSales, netProfit, lastYear, loseInternet, result } = this.state
         const values = {storeType, annualSales, netProfit, lastYear, loseInternet}
+        // const result = parseInt(lastYear) + parseInt(netProfit)
         
         switch (step) {
+            default:
             case 1: 
                 return(
                     <StoreType
@@ -81,10 +95,11 @@ export class UserForm extends Component {
                     prevStep={this.prevStep}
                     handleChange={this.handleChange}
                     values={values}
+                    setResult={this.setResult}
                     />
                 )
             case 6:
-                return <h1>Calculation</h1>
+                return <h1>result: {result}</h1>
             }
     }
 }

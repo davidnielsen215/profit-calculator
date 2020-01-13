@@ -27,7 +27,7 @@ export class StoreType extends Component {
                         <FormControlLabel value="Ski Shop" control={<Radio color="primary"/>} label="Ski Shop" />
                         <FormControlLabel value="Snowboard Shop" control={<Radio color="primary"/>} label="Snowboard Shop" />
                         <FormControlLabel value="Ski + Snowboard Shop" control={<Radio color="primary"/>} label="Ski + Snowboard Shop" />
-                        <FormControlLabel value="Outdoor Gear + Ware" control={<Radio color="primary"/>} label="Outdoor Gear + Ware" />
+                        <FormControlLabel value="Outdoor Gear + Wear" control={<Radio color="primary"/>} label="Outdoor Gear + Wear" />
 
                     </RadioGroup>
                     </FormControl>

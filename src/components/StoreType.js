@@ -22,13 +22,13 @@ export class StoreType extends Component {
                     <AppBar title='What type of retail store do you have?' style={{backgroundColor: `${styles.nav.color}`}}/>
                     
                     <br></br>
+                    <br></br>
                     <FormControl component="fieldset" >
                     <RadioGroup onChange={handleChange('storeType')} defaultValue={values.storeType}>
                         <FormControlLabel value="Ski Shop" control={<Radio color="primary"/>} label="Ski Shop" />
                         <FormControlLabel value="Snowboard Shop" control={<Radio color="primary"/>} label="Snowboard Shop" />
                         <FormControlLabel value="Ski + Snowboard Shop" control={<Radio color="primary"/>} label="Ski + Snowboard Shop" />
                         <FormControlLabel value="Outdoor Gear + Wear" control={<Radio color="primary"/>} label="Outdoor Gear + Wear" />
-
                     </RadioGroup>
                     </FormControl>
                     <br/>

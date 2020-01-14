@@ -13,7 +13,8 @@ export class UserForm extends Component {
         netProfit: '',
         lastYear: '',
         loseInternet: '',
-        result: ''
+        result: '',
+        result2: ''
     }
 
     // Proceed to next step
@@ -39,19 +40,29 @@ export class UserForm extends Component {
     }
 
     setResult = () =>{
-        const {netProfit, lastYear, result } = this.state
-        const var1 = parseFloat(lastYear)
-        const var2 = parseFloat(netProfit)
+        const { result, result2, loseInternet, annualSales } = this.state
+        // const var1 = parseFloat(lastYear)
+        // const var2 = parseFloat(netProfit)
+        const var3 = (parseFloat(loseInternet) / 100)
+        const var4 = (parseFloat(loseInternet) / 100) + 1
+
+        const equate = annualSales * var3
+        const equate2 = annualSales * var4
+
         this.setState({
-            result: result + (var1 + var2).toFixed(2) + "%"
+            result: result + (equate).toFixed(2) ,
+            result2: result2 + (equate2).toFixed(2)
         })
-        console.log(lastYear)
-        console.log(netProfit)
     }
+
+    withCommas = (x) => {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
+
 
     render() {
         const { step } = this.state
-        const { storeType, annualSales, netProfit, lastYear, loseInternet, result } = this.state
+        const { storeType, annualSales, netProfit, lastYear, loseInternet, result, result2 } = this.state
         const values = {storeType, annualSales, netProfit, lastYear, loseInternet}
         // const result = parseInt(lastYear) + parseInt(netProfit)
         
@@ -99,7 +110,16 @@ export class UserForm extends Component {
                     />
                 )
             case 6:
-                return <h1>result: {result}</h1>
+                return (
+                <>
+                    <h1>Annual Sales:</h1>
+                    <h2 style={{color: 'green'}}>${this.withCommas(annualSales)}</h2>
+                    <h1>Amount lost to internet: </h1>
+                    <h2 style={{color: 'red'}}>${this.withCommas(result)}</h2>
+                    <h1>Total amount using Best Deal Retailer: </h1>
+                    <h1 style={{color: 'blue'}}>${this.withCommas(result2)}</h1>
+                </>
+                )
             }
     }
 }

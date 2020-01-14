@@ -10,6 +10,9 @@ import TextField from '@material-ui/core/TextField';
 import NumberFormat from 'react-number-format'
 
 export class AnnualSales extends Component {
+    state = {
+        isDisabled: false
+    }
     continue = e => {
         e.preventDefault()
         this.props.nextStep()
@@ -22,7 +25,7 @@ export class AnnualSales extends Component {
 
      NumberFormatCustom1(props) {
         const { inputRef, onChange, ...other } = props;
-      
+        // const {isDiabled} = this.state
         return (
           <NumberFormat
             {...other}
@@ -39,32 +42,41 @@ export class AnnualSales extends Component {
             prefix="$"
           />
         );
-      }
+    }
+
+    handleChar = () =>{
+        const {handleChange} = this.props
+        if(handleChange('annualSales').length > 0){
+            this.setState({
+                isDisabled: true
+            })
+        }
+    }
     
     render() {
         const { values, handleChange } = this.props 
+        const {isDisabled} = this.state
         
         return (
             <MuiThemeProvider>
                 <React.Fragment>
                     <AppBar title= "Select range for store's annual sales" style={{backgroundColor: `${styles.nav.color}`}}/>
-
-                    <FormControl component="fieldset" >
+                    <br></br>
+                    <FormControl >
                     <RadioGroup onChange={handleChange('annualSales')} defaultValue={values.annualSales}>
-                        <FormControlLabel value="625,000" control={<Radio color="primary"/>} label="$500K - $750K" />
-                        <FormControlLabel value="875,000" control={<Radio color="primary"/>} label="$750K - $1M" />
-                        <FormControlLabel value="1,250,000" control={<Radio color="primary"/>} label="$1M - $1.5M" />
-                        <FormControlLabel value="1,750,000" control={<Radio color="primary"/>} label="$1.5M - $2M" />
-                        <FormControlLabel value="2,500,000" control={<Radio color="primary"/>} label="$2M - $3M" />
-                        <FormControlLabel value="4,000,000" control={<Radio color="primary"/>} label="$3M - $5M" />
-                        <FormControlLabel value="7,500,000" control={<Radio color="primary"/>} label="$5M - $10M" />
-                
+                        <FormControlLabel value="625000" disabled={isDisabled} control={<Radio color="primary"/>} label="$500K - $750K" />
+                        <FormControlLabel value="875000" disabled={isDisabled} control={<Radio color="primary"/>} label="$750K - $1M" />
+                        <FormControlLabel value="1250000" disabled={isDisabled} control={<Radio color="primary"/>} label="$1M - $1.5M" />
+                        <FormControlLabel value="1750000" disabled={isDisabled} control={<Radio color="primary"/>} label="$1.5M - $2M" />
+                        <FormControlLabel value="2500000" disabled={isDisabled} control={<Radio color="primary"/>} label="$2M - $3M" />
+                        <FormControlLabel value="4000000" disabled={isDisabled} control={<Radio color="primary"/>} label="$3M - $5M" />
+                        <FormControlLabel value="7500000" disabled={isDisabled} control={<Radio color="primary"/>} label="$5M - $10M" />
                         <TextField
                             label="Other Amount"
                             onChange={handleChange('annualSales')}
                             id="formatted-numberformat-input"
                             InputProps={{
-                                inputComponent: this.NumberFormatCustom1,
+                                inputComponent: this.NumberFormatCustom1
                             }}
                         />
                     </RadioGroup>

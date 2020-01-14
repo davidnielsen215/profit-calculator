@@ -55,7 +55,7 @@ export class LoseInternet extends Component {
                     
                     <FormControl component="fieldset" >
                     <RadioGroup onChange={handleChange('loseInternet')} defaultValue={values.loseInternet}>
-                        <FormControlLabel value="5%%" control={<Radio color="primary"/>} label="0% - 10%" />
+                        <FormControlLabel value="5%" control={<Radio color="primary"/>} label="0% - 10%" />
                         <FormControlLabel value="15.5%" control={<Radio color="primary"/>} label="11% - 20%%" />
                         <FormControlLabel value="25.5%" control={<Radio color="primary"/>} label="21% - 30%" />
                         <FormControlLabel value="35.5%" control={<Radio color="primary"/>} label="31% - 40%" />
